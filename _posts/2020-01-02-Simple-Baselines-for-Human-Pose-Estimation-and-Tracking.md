@@ -72,13 +72,13 @@ Pose tracking의 경우에는 pose estimation보다 더 어려운 task이기 때
 이런 경우를 해결하기 위해서 temporal information을 사용하는 것이 tracking 성능을 많이 상승시킬 수 있다.
   
   
-## (1) Joint Propagation using Optical Flow   
+#### (1) Joint Propagation using Optical Flow   
 그래서 temporal 정보를 이용해 human box를 만들어 내기 위해서 joint propagation을 이용한다. 만약에 주어진 특정 프레임 $I^{k-1}$과 그 프레임의 joint set ${J_{i}}^{k-1}$, optical flow $F_{k-1 -> k}$가 있을 때 optical flow를 이용해서 프레임 $I^k$의 joint set $\hat{{J_i}^k}$을 추정할 수 있다.   
 
 그러면 해당 프레임에서 detector를 이용해 찾아낸 joint들과, optical flow를 이용해 propagate한 joint들을 합쳐서 사용할 수 있다. 이런식으로 candidate joint set을 설정하면 흐릿하게 나온 피사체나 겹쳐있는 피사체들도 상대적으로 잘 찾아내는 네트워크를 구성할 수 있다. (아래 알고리즘에서 나오지만 중복되는 joint가 나올 수 있으니까 Non-Maximum Suppression을 사용해서 중복되는 joint를 합친다.)   
   
   
-## (2) Flow-based Pose Similarity   
+#### (2) Flow-based Pose Similarity   
 지금까지는 bounding box의 IoU(Intersection over Union)를 similarity metric으로 사용해왔다. 하지만 이런 metric은 피사체가 빨라서 box 간의 오버랩이 생기지 않는다던가, 너무 사람이 붐벼있는 영상에서는 제대로 사용할 수 없다는 한계가 있었다.  
   
 이러한 문제를 해결한 또 다른 metric이 $OKS(Object Keypoint Similarity)$였는데, 얘도 피사체의 포즈가 갑자기 확 바뀔 때는 문제가 될 수 있고, 앞서 제인한 optical flow에 기반한 joint를 충분히 반영하지 못한다는 한계가 있었다. 그래서 이 논문에서는 이러한 한계를 극복하기 위해서 flow-based pose similarity metric을 제안한다.  
@@ -90,7 +90,7 @@ $$S_{Flow}({J_i}^k, {J_j}^l) = OKS(\hat{{J_k}^l}, {J_j}^l)$$
 추가적으로 optical flow based로 계산할 때는 바로 이전 프레임만 보는게 아니라 여러 장의 frame을 보면서 확인한다고 한다. 그래서 예전에 나왔었던 object라고 해도 오래 전의 프레임도 같이 저장해서 보기 때문에 같은 id임을 확인할 수 있다.  
   
 
-## (3) Flow-based Pose Tracking Algorithm  
+#### (3) Flow-based Pose Tracking Algorithm  
 <img width="836" alt="image" src="https://user-images.githubusercontent.com/40735375/72149635-ee327400-33e6-11ea-9e07-616738e83085.png">  
 
 이 알고리즘은 tracking pseudo code이다.  
@@ -116,7 +116,7 @@ $$S_{Flow}({J_i}^k, {J_j}^l) = OKS(\hat{{J_k}^l}, {J_j}^l)$$
   
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/40735375/72172788-6a45af80-3419-11ea-923a-df2fa45e8ada.png">  
   
-일단 상단의 표에서 확인할 수 있듯이, 기존의 모델들과 비교했을 때 성능(mAP, MOTa)에서 꽤 큰 차이로 좋은 성능을 보임을 알 수 있다.  
+일단 상단의 표에서 확인할 수 있듯이, 기존의 모델들과 비교했을 때 성능(mAP, MOTA)에서 꽤 큰 차이로 좋은 성능을 보임을 알 수 있다.  
 
 다만 아쉬웠던 점은 이 논문 자체가 실험 결과를 기반으로 쓰여져 있었기 때문에 이론적인 뒷받침이 많이 없었고, 다른 모델들의 결과(CPN, hourglass) 역시 직접 구현해 실험한 것이 아니라 해당 논문에 있는 실험결과를 그대로 가져왔기 때문에 동일 환경에서 실험한 결과가 아니라는 것이었다.  
   
