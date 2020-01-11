@@ -1,10 +1,10 @@
 ---
+layout: post
 title: Simple Baselines for Human Pose Estimation and Tracking
-date : 2020-01-03
-category: PoseEstimation
 tags: PoseEstimation
 use_math: true
 published: true
+comments: true
 ---
   
 
