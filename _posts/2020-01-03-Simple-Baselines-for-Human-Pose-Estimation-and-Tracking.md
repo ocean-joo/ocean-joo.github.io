@@ -1,10 +1,12 @@
----  
-title: Simple Baselines for Human Pose Estimation and Tracking  
-date : 2020-01-02  
-category: PoseEstimation  
-tags: PoseEstimation  
-use_math: true  
----  
+---
+title: Simple Baselines for Human Pose Estimation and Tracking
+date : 2020-01-03
+category: PoseEstimation
+tags: PoseEstimation
+use_math: true
+published: true
+---
+  
 
 이상하게 내 기존 테마로는 2020년 이후의 글이 제대로 업로드가 되지 않아서 [시형오빠](http://sihyungyou.github.io/)꺼 블로그 테마를 훔쳐왔다. 그런데 저번주에 맥북 수리 맡기면서 simple baseline 정리해놓은게 사라져 버렸다..^^ 커밋해뒀었는데 레파지토리도 지워버리고 새걸로 올려버리고 icloud에도 예전 버전으로 올라가 버려서 다시 써야 한다 ,,, 이거 진짜 엄청 열심히 썼었는데 .. .   
 충 격 실 화  
