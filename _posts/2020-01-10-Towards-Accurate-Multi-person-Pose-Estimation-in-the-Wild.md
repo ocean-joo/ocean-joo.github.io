@@ -1,10 +1,13 @@
 ---
+layout: post
 title: Towards Accurate Multi-person Pose Estimation in the Wild
-date : 2020-01-10
-category: PoseEstimation
 tags: PoseEstimation
 use_math: true
----  
+published: true
+comments: true
+---
+  
+
 얘도 다른 논문에서 인용되는걸 좀 많이 봐서 내적 친목이 어느정도 쌓여있는 논문이다.. 계절학기 마무리하고 기존에 연구하던거 회사미팅 준비하고 하느라 논문 읽는 걸 좀 게을리했지만... 다시 한다 2일 1논문 ..  
 
 
