@@ -75,7 +75,7 @@ Pose tracking의 경우에는 pose estimation보다 더 어려운 task이기 때
   
   
 #### (1) Joint Propagation using Optical Flow   
-그래서 temporal 정보를 이용해 human box를 만들어 내기 위해서 joint propagation을 이용한다. 만약에 주어진 특정 프레임 $I^{k-1}$과 그 프레임의 joint set ${J_{i}}^{k-1}$, optical flow $F_{k-1 -> k}$가 있을 때 optical flow를 이용해서 프레임 $I^k$의 joint set $\hat{{{J}_{i}}^k}$을 추정할 수 있다.   
+그래서 temporal 정보를 이용해 human box를 만들어 내기 위해서 joint propagation을 이용한다. 만약에 주어진 특정 프레임 $I^{k-1}$과 그 프레임의 joint set ${J_{i}}^{k-1}$, optical flow $F_{k-1 -> k}$가 있을 때 optical flow를 이용해서 프레임 $I^k$의 joint set $\hat{ {J_i}^k }$ 을 추정할 수 있다.   
 
 그러면 해당 프레임에서 detector를 이용해 찾아낸 joint들과, optical flow를 이용해 propagate한 joint들을 합쳐서 사용할 수 있다. 이런식으로 candidate joint set을 설정하면 흐릿하게 나온 피사체나 겹쳐있는 피사체들도 상대적으로 잘 찾아내는 네트워크를 구성할 수 있다. (아래 알고리즘에서 나오지만 중복되는 joint가 나올 수 있으니까 Non-Maximum Suppression을 사용해서 중복되는 joint를 합친다.)   
   
