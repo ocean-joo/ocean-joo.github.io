@@ -75,7 +75,7 @@ Pose tracking의 경우에는 pose estimation보다 더 어려운 task이기 때
   
   
 #### (1) Joint Propagation using Optical Flow   
-그래서 temporal 정보를 이용해 human box를 만들어 내기 위해서 joint propagation을 이용한다. 만약에 주어진 특정 프레임 $I^{k-1}$과 그 프레임의 joint set ${J_{i}}^{k-1}$, optical flow $F_{k-1 -> k}$가 있을 때 optical flow를 이용해서 프레임 $I^k$의 joint set $\hat{{J_i}^k}$을 추정할 수 있다.   
+그래서 temporal 정보를 이용해 human box를 만들어 내기 위해서 joint propagation을 이용한다. 만약에 주어진 특정 프레임 $I^{k-1}$과 그 프레임의 joint set ${J_{i}}^{k-1}$, optical flow $F_{k-1 -> k}$가 있을 때 optical flow를 이용해서 프레임 $I^k$의 joint set $\hat{{{J}_{i}}^k}$을 추정할 수 있다.   
 
 그러면 해당 프레임에서 detector를 이용해 찾아낸 joint들과, optical flow를 이용해 propagate한 joint들을 합쳐서 사용할 수 있다. 이런식으로 candidate joint set을 설정하면 흐릿하게 나온 피사체나 겹쳐있는 피사체들도 상대적으로 잘 찾아내는 네트워크를 구성할 수 있다. (아래 알고리즘에서 나오지만 중복되는 joint가 나올 수 있으니까 Non-Maximum Suppression을 사용해서 중복되는 joint를 합친다.)   
   
@@ -87,7 +87,7 @@ Pose tracking의 경우에는 pose estimation보다 더 어려운 task이기 때
   
 
 특정 frame $I^k$의 한 instance ${{J}_{i}}^{k}$와 다른 frame $I^l$의 한 instance ${{J}_{j}}^{l}$의 similarity는 다음과 같이 계산된다.  
-$$S_{Flow}({J_i}^k, {J_j}^l) = OKS(\hat{{J_k}^l}, {J_j}^l)$$  
+$$S_{Flow} ({{J}_{i}}^k, {J_j}^l) = OKS(\hat{{J_k}^l}, {J_j}^l)$$  
   
 추가적으로 optical flow based로 계산할 때는 바로 이전 프레임만 보는게 아니라 여러 장의 frame을 보면서 확인한다고 한다. 그래서 예전에 나왔었던 object라고 해도 오래 전의 프레임도 같이 저장해서 보기 때문에 같은 id임을 확인할 수 있다.  
   
