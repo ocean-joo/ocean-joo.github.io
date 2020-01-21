@@ -97,7 +97,7 @@ $$S_{Flow} ( {J_i}^k, {J_j}^l ) = OKS(\hat{ {J_k}^l }, {J_j}^l)$$
 
 이 알고리즘은 tracking pseudo code이다.  
   
-사실 다 앞에서 설명한 내용이라서 굳이 다시 설명할 필요는 없을 것 같지만, ${{B}_{det}}^{k}$와 ${{B}_{flow}}^{k}$에 각각 detect된 joint와 optical-flow에 기반에 추정된 joint들을 넣고, 얘네를 NMS(Non-Maximum Suppression)를 이용해 중복을 제거한 ${{B}_{unified}}^{k}$들을 similarity metric 기준으로 greedy matching한다. 이 내용을 $Q$에 차곡차곡 쌓아두는 내용이 설명되어 있다 !  
+사실 다 앞에서 설명한 내용이라서 굳이 다시 설명할 필요는 없을 것 같지만, ${B_det}^{k}$와 ${B_flow}^{k}$에 각각 detect된 joint와 optical-flow에 기반에 추정된 joint들을 넣고, 얘네를 NMS(Non-Maximum Suppression)를 이용해 중복을 제거한 ${B_unified}^{k}$들을 similarity metric 기준으로 greedy matching한다. 이 내용을 $Q$에 차곡차곡 쌓아두는 내용이 설명되어 있다 !  
   
   
 
