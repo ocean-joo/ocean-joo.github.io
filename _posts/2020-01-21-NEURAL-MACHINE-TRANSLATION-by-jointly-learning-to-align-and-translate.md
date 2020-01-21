@@ -6,6 +6,7 @@ use_math: true
 published: true
 comments: true
 ---
+  
 오늘은 랩실에서 논문 스터디가 있었던 NEURAL MACHINE TRANSLATION by jointly learning to align and translate 를 가져왔다. Transformer나 NMT는 정말 많이 쓰이는 구조이다보니까 논문을 읽지는 않았어도 어디서 정말 많이 들어본 구조였는데, 막상 논문을 읽어보는 건 처음이었다.   
   
 *****
