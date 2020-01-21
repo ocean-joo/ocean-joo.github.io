@@ -86,8 +86,8 @@ Pose tracking의 경우에는 pose estimation보다 더 어려운 task이기 때
 이러한 문제를 해결한 또 다른 metric이 $OKS(Object Keypoint Similarity)$였는데, 얘도 피사체의 포즈가 갑자기 확 바뀔 때는 문제가 될 수 있고, 앞서 제인한 optical flow에 기반한 joint를 충분히 반영하지 못한다는 한계가 있었다. 그래서 이 논문에서는 이러한 한계를 극복하기 위해서 flow-based pose similarity metric을 제안한다.  
   
 
-특정 frame $I^k$의 한 instance ${{J}_{i}}^{k}$와 다른 frame $I^l$의 한 instance ${{J}_{j}}^{l}$의 similarity는 다음과 같이 계산된다.  
-$$S_{Flow} ({{J}_{i}}^k, {J_j}^l) = OKS(\hat{{J_k}^l}, {J_j}^l)$$  
+특정 frame $I^k$의 한 instance ${J_i}^{k}$와 다른 frame $I^l$의 한 instance ${J_j}^{l}$의 similarity는 다음과 같이 계산된다.  
+$$S_{Flow} ( {J_i}^k, {J_j}^l ) = OKS(\hat{ {J_k}^l }, {J_j}^l)$$  
   
 추가적으로 optical flow based로 계산할 때는 바로 이전 프레임만 보는게 아니라 여러 장의 frame을 보면서 확인한다고 한다. 그래서 예전에 나왔었던 object라고 해도 오래 전의 프레임도 같이 저장해서 보기 때문에 같은 id임을 확인할 수 있다.  
   
