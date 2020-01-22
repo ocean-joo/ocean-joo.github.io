@@ -27,7 +27,7 @@ comments: true
 ## 2. Learning jointly to align and translate    
 논문에서는 짧게 기존의 neural machine translation에 대해서 간단하게 설명해준다. 사진을 넣어서 설명을 추가하고 싶지만 사진을 만들기 너무 귀찮으니까 패스..ㅎㅎ  
   
-간단하게 요약을 하자면, 초기의 translation task는 하나의 확률론적인 관점에서 source sentence x가 주어졌을 때 y의 조건부 확률을 최대화 하는 ${argmax}_{y} p(y|x)$ 로 해석할 수 있었다고 한다. 그래서 이 확률을 크게 하도록 모델의 파라미터를 학습했다고 하는데, 최근에는 딥러닝을 이용하면서 이 조건부 확률의 분포 자체를 학습하는 방향으로 변화하게 되었고 그 중 가장 대표적인 게 RNN 기반의 encoder - decoder 이다.  
+간단하게 요약을 하자면, 초기의 translation task는 하나의 확률론적인 관점에서 source sentence x가 주어졌을 때 y의 조건부 확률을 최대화 하는 ${argmax}_{y} p(y&#124;x)$ 로 해석할 수 있었다고 한다. 그래서 이 확률을 크게 하도록 모델의 파라미터를 학습했다고 하는데, 최근에는 딥러닝을 이용하면서 이 조건부 확률의 분포 자체를 학습하는 방향으로 변화하게 되었고 그 중 가장 대표적인 게 RNN 기반의 encoder - decoder 이다.  
   
 이 논문에서는 기존의 encoder - decoder를 개선한 새로운 아키텍처를 제안한다. Encoder network에서는 bidirectional RNN을 사용했고, decoder network에서는 source sentence에서 target word에 영향을 많이 준 단어를 soft searching하면서 예측한다.  
   
