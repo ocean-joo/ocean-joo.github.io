@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RMPE: Regional Multi-Person Pose Estimation"
+title: "ㅊ"
 tags: [DeepLearning, ComputerVision, PoseEstimation]
 use_math: true
 published: true
@@ -19,7 +19,7 @@ comments: true
   
 주어진 영상/이미지에서 사람들을 찾아내고 그 사람들의 포즈를 찾아내는 일은 사실 쉬운 일이 아니다. 주어진 이미지에서 사람이 있는 부분을 찾아내는 object detection / localization 문제와 single person pose estimation 문제가 모두 어느정도 해결된다는 전제가 있어야 하기 때문이다.  
   
-하지만 object detection의 성능이 충분히 높게 올라왔음에도 어느정도의 localization error는 불가피했고, 이런 bbox 들의 작은 차이가 최종 multi-person pose estimation의 성능을 크게 좌우했다. (part-based approach와 two-step approach 중 후자 기준으로)  
+하지만 object detection의 성능이 충분히 높게 올라왔음에도 어느정도의 localization error는 불가피했고, 이런 bbox 들의 작은 차이가 최종 multi-person pose estimation의 성능을 크게 좌우했다. (multi-person pose estimation에서 part-based approach와 two-step approach 중 후자 기준으로)  
   
 <img width="1251" alt="image" src="https://user-images.githubusercontent.com/40735375/74122152-8356a180-4c0d-11ea-983c-90a93d910000.png">  
   
@@ -46,7 +46,7 @@ RMPE framework의 대략적인 그림이다. 이미지에서 사람으로 추정
 ### 1) Symmetric STN (Spatial Transformer Network) and Parallel SPPE (Single-Person Pose Estimator)   
 저기 introduction에서의 그림에서 봤듯이 single person pose estimator(이제 SPPE라고 하겠다!)는 하나의 이미지에 차있는 한 명의 사람에 대해서 학습이 되기 때문에 input이 되는 human proposal에 대해서 많이 예민하다.  
   
-Symmetric STN과 Parallel SPPE는 이러한 한계를 극복하기 위해서 제안되었는데, 일단 수학적으로 STN은 2D affine transformation을 수행한다. affine transformation이 뭐냐면 간단하게 2D 좌표계의 좌표들을 다른 2D 좌표로 보냈을 때 보내기 전에 평행이었던 애들은 보낸 후에도 평행인 transformation이다. 이미지를 빙글빙글 돌리는 거를 생각해보면 될 것 같다!  
+Symmetric STN과 Parallel SPPE는 이러한 한계를 극복하기 위해서 제안되었는데, 일단 수학적으로 STN은 2D affine transformation을 수행한다. affine transformation이 뭐냐면 간단하게 2D 좌표계의 좌표들을 다른 2D 좌표로 보냈을 때 보내기 전에 평행이었던 애들은 보낸 후에도 평행인 transformation이다. 이미지를 빙글빙글 돌리고 평행사변형 모양으로 바꾸는 거를 생각해보면 될 것 같다!  
   
 <img width="559" alt="image" src="https://user-images.githubusercontent.com/40735375/74139255-65e9fd80-4c36-11ea-8124-b675be85acec.png">  
   
@@ -61,7 +61,7 @@ STN은 수식 (1)과 같은 과정을 거쳐서 detector로부터 들어왔던 h
   
   
 ### 2) Parametric Pose NMS (Non Maximum Suppression)  
-그리고 기존 human detector의 또 다른 문제는 중북된 bbox를 만들어 낸다는 것이었다. 그래서 이 중복된 bbox들을 하나로 만들기 위해서 NMS를 사용했는데, 원래의 NMS는 그렇게 효과적이지도 않고 정확하지도 않았다고 한다.  
+그리고 기존 human detector의 또 다른 문제는 중북된 bbox를 만들어 낸다는 것이었다. 그래서 이 중복된 bbox들을 하나로 만들기 위해서 NMS를 사용했는데, 기존의 NMS는 그렇게 효과적이지도 않고 정확하지도 않았다고 한다.  
   
 그래서 이 논문에서는 새로운 parametric pose NMS를 제안한다. 먼저 pose NMS를 간단하게 소개하자면 pose NMS는 주어진 bbox 중에서 가장 confidence가 높은 bbox를 찾고, elimination 기준에 따라 얘가 삭제할만 하다 싶으면 삭제하는걸 unique한 bbox들만 남을때까지 반복한다.  
   
@@ -69,7 +69,7 @@ STN은 수식 (1)과 같은 과정을 거쳐서 detector로부터 들어왔던 h
   
 <img width="581" alt="image" src="https://user-images.githubusercontent.com/40735375/74142085-836d9600-4c3b-11ea-9a79-930f0b4ddf1e.png">  
   
-만약에 $d(P_i, P_j | &Lambda;)$이 $&eta;$보다 작으면 최종 output은 1이 되고, pose $P_i$는 pose $P_j$과 비슷하기 때문에 사라지게 된다.  
+만약에 $d(P_i, P_j&#124;&Lambda;)$이 $&eta;$보다 작으면 최종 output은 1이 되고, pose $P_i$는 pose $P_j$과 비슷하기 때문에 사라지게 된다.  
   
 하나 흥미로웠던거는 $d(P_i, P_j&#124;&Lambda;, &eta;)$를 최적화할때 4D space에서 최적점을 찾는게 어려웠기 때문에 번갈아 가면서 2개 고정하고 2개 최적화하고, 다른 2개 고정하고 2개 최적화하는 과정을 반복하면서 학습을 진행해 파라미터를 수렴시킬 수 있었다고 한다.  
   
