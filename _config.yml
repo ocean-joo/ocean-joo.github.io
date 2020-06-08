@@ -63,12 +63,17 @@ footer-text: Hyeon-62. 2020
 # disqus: # <username>.disqus.com
 disqus: hailey-blog.disqus.com
 
-# 댓글 관련 부분
-comments:
-  provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
-  disqus:
-    shortname            : hailey-blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+# # 댓글 관련 부분
+# comments:
+#   provider: "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+#   disqus:
+#     shortname: hailey-blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
 		
+
+comments:
+  provider: "disqus"
+  disqus:
+    shortname: hailey-blog
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics:
