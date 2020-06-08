@@ -1,2 +1,4 @@
 User-agent: *
-Allow: 
+Allow: /
+
+Sitemap: https://hyeon-62.github.io/sitemap.xml
