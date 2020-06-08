@@ -66,8 +66,7 @@ disqus: hailey-blog.disqus.com
 # # 댓글 관련 부분
 # comments:
 #   provider: "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
-#   disqus:
-#     shortname: hailey-blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+#   disqus:hailey-blog # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
 
 comments:
   provider: "disqus"
