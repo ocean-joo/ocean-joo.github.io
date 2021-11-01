@@ -4,8 +4,6 @@ title: 개발자 전해주
 permalink: /about/
 ---
 
-![image](https://user-images.githubusercontent.com/40735375/83999284-618fe000-a99d-11ea-9c1b-ca1bb5b74778.png) 
-
 ## 개발자 전해주의 우당탕탕 일상생활  
 
 딥러닝과 컴퓨터 비전을 공부하고 있고, 좀 더 많은 사람에게 따뜻한 세상을 만들고 싶습니다.  
